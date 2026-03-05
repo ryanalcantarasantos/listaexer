@@ -1,50 +1,47 @@
-const calcularMedia = function(nota1, nota2, nota3, nota4){
+function calcularMedia (n1, n2, n3, n4){
 
-    let media = (Number(nota1) + Number(nota2) + Number(nota3) + Number(nota4)) / 4
+    let media
 
-    return media
+    let nota1 = n1
 
-}
+    let nota2 = n2
+
+    let nota3 = n3
+
+    let nota4 = n4
 
 
-
-
-
-const statusDoAluno = function (media){
-    let resultFinal = situacao
-    if (media >= 70) {
-        resultFinal = 'Aprovado'
-    }else if(media >= 50) {
-        resultFinal = 'Recuperação'
-    }else{
-        resultFinal = 'Reprovado'
-    }
     
-    return statusDoAluno
-
-}
-
-
- 
+    media = (Number(nota1) + Number(nota2) + Number(nota3) + Number(nota4)) / 4
 
 
 
-const calcularExame = function(exame, media){
-    let notaExame = exame
-    let mediaAnterior = media
-
-    let mediaAtual = (Number(notaExame) + Number(mediaAnterior)) / 2
-
-    return mediaAtual
+    if(media >= 70){
+        return media    
+    }else if(media >= 50 && media <= 69){
+        return media
+    }else{ 
+        return media
+    }
+     
 }
 
 
 
+function calcularExame(exame, media){
+    let notaDoExame = exame
+    let mediaSemExame = media 
+    
+    let mediaComExame = (Number(notaDoExame) + Number(mediaSemExame)) / 2;
+
+    return mediaComExame
+}
 
 
 
 
-module.exports ={
+module.exports = {
     calcularMedia,
     calcularExame
+
 }

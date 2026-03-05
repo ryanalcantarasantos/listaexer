@@ -5,42 +5,68 @@ const entradaDeDados = readline.createInterface({
     output: process.stdout     
 })
 
-entradaDeDados.question('Qual é o nome do aluno?:', function(nomeAluno){
-    let nomeA = nomeAluno
 
-    entradaDeDados.question('Qual é o nome do professor:', function(nomeProfessor){
-        let nomeP = nomeProfessor
+entradaDeDados.question('Qual é o nome do aluno?: ', function(nomeA){
+    let nomeAluno = nomeA
+    
+    
+    
+    entradaDeDados.question('Qual é o nome do professor?: ', function(nomeP){
+        let nomeProfessor = nomeP
+        
+        
+        
+        entradaDeDados.question('Qual é o nome do curso?:', function(nomeC){
+            let nomeCurso = nomeC 
 
-        entradaDeDados.question('Qual é o genero do aluno?:', function(GeneroAluno){
-            let genA = GeneroAluno
 
-            entradaDeDados.question('Qual é o genero do professor?:', function(GeneroProfessor){
-                let genP = GeneroProfessor
+            
+            entradaDeDados.question('Qual é o nome da disciplina?:', function(nomeD){
+                let nomeDisciplina = nomeC
+                
+                
+                
+                entradaDeDados.question('Qual é o genero do aluno ', function(genA){
+                    let generoAluno = genA
 
-                entradaDeDados.question('Qual é o nome do curso?:', function(nomeCurso){
-                    let nomeC = nomeCurso
 
-                    entradaDeDados.question('Qual é o nome da disciplina?:', function(nomeDisciplina){
-                        let nomeD = nomeDisciplina
+                    entradaDeDados.question('Qual é o genero do professor', function(genP){
+                        let generoProfessor = genP
+                        
+                        
+                     
+                            let calculos = require("./modulo/calculoMedia.js")
 
-                        entradaDeDados.question('Qual é a nota 1?:', function(nota1){
-                            let n1 = nota1
 
-                            entradaDeDados.question('Qual é a nota 2?:', function(nota2){
-                                let n2 = nota2
+                            let media = calculos.mediaEscola(nota1, nota2, nota3, nota4)
 
-                                entradaDeDados.question('Qual é o valor da nota 3?:', function(nota3){
-                                    let n3 = nota3
 
-                                    entradaDeDados.question('Qual é o valor da nota 4?:', function(nota4){
-                                        let n4 = nota4
-                                    })
-                                })
-                            })
-                        })
-                    })
+
+                               if(media >= 50 || media <= 69){
+                                entradaDeDados.question("digete a nota do exame: ", function(ex){
+                                    let resultadoExame = ex 
+                                    
+                                    let exe = calculos.mediaExame(resultadoExame, media)
+
+                                    if (exe >= 60) {
+                                        console.log(`Aprovado no exame! Média final: ${exe.toFixed(2)}`);
+                                    } else {
+                                        console.log(`Reprovado no exame. Média final: ${exe.toFixed(2)}`);
+                                    }
+                                  })
+                               }else{
+                                    console.log(`Reprovado direto com média: ${media.toFixed(2)}`);
+                               }  
+
+                        
+                    })                  
                 })
             })
         })
-    })
+    })                   
 })
+
+
+
+
+
